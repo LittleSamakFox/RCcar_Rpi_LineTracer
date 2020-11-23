@@ -2,9 +2,11 @@
 #### Teammates
 Littlesamakfox
 Atron
+
 =========
 #### Describe
 opencv를 이용하여 Raspberry Pi와 Aduino의 통신을 통한 linetracer RC car 제작
+
 =========
 #### Video
 <div>
