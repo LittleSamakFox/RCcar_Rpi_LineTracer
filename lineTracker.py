@@ -29,7 +29,6 @@ while(True):
 	gray = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
 	blur = cv2.GaussianBlur(gray,(5,5),0)
 	ret,thresh = cv2.threshold(blur,35,255,cv2.THRESH_BINARY_INV)
-	#cv2.imshow('thresh',thresh)
 
 	# Erode to eliminate noise, Dilate to restore eroded parts of image
 	mask = cv2.erode(thresh, None, iterations=2)
@@ -51,29 +50,6 @@ while(True):
 		cv2.drawContours(crop_img, contours, -1, (0,255,0), 1)
 		print(cx, cy)
 		
-		"""
-		if cx > camera_pixel_x/2:
-			ix = abs(cx - camera_pixel_x/2)
-		else:
-			ix = cx
-			
-		if cy > camera_pixel_y/2:
-			iy = abs(cy - camera_pixel_y/2)
-		else:
-			iy = cy
-		
-		if iy >= camera_pixel_y * ix /(gap * camera_pixel_x):
-			print("S")
-			cmd = ("S").encode('ascii')
-		elif cx >= camera_pixel_x / 2:
-			print("R")
-			cmd = ("R").encode('ascii')
-		elif cx < camera_pixel_x / 2:
-			print("L")
-			cmd = ("L").encode('ascii')
-			
-		ser.write(cmd)
-		"""
 		if cx >= camera_pixel_x*(right_g):
 			print("R")
 			cmd = ("R").encode('ascii')
